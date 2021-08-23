@@ -8,15 +8,16 @@ import { BrowserRouter } from "react-router-dom";
 import appReducer from "./utils/reducer";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import { AuthProvider } from "./utils/Auth";
 
 const appStore = createStore(appReducer);
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Provider store={appStore}>
-      <App />
-    </Provider>
-  </BrowserRouter>,
+  <Provider store={appStore}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 
